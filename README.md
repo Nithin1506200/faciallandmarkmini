@@ -1,3 +1,2 @@
 # lipstick
-source: https://github.com/tensorflow/tfjs-models/tree/master/face-landmarks-detection
-486 landmark
+https://justadudewhohacks.github.io/face-api.js/docs/index.html
