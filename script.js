@@ -21,7 +21,7 @@ function myapp(){
    setupCam();
    let detectFaces = async () => {
    
-        let predictions = await faceapi.detectAllFaces(video).withFaceLandmarks(true);
+        let predictions = await faceapi.detectAllFaces(video).withFaceLandmarks();
 
             ctx.clearRect(0,0,canvas.width,canvas.height);
           
