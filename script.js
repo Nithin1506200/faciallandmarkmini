@@ -56,7 +56,7 @@ function myapp(){
     video.addEventListener("loadeddata",async () => {
         await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
        // await faceapi.loadTinyFaceDetectorModel('/models')
-        await faceapi.loadFaceLandmarkTinyModel('/models');
+        await faceapi.loadFaceLandmarkModel('/models');
      //   await faceapi.loadTinyFaceDetectorModel('/models')
  //  
  setInterval(detectFaces,100);
