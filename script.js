@@ -21,7 +21,7 @@ function myapp(){
    setupCam();
    let detectFaces = async () => {
    
-        let predictions = await faceapi.detectAllFaces(video).withFaceLandmarks();
+        let predictions = await faceapi.detectAllFaces(video).withFaceLandmarks(true);
 
             ctx.clearRect(0,0,canvas.width,canvas.height);
           
@@ -57,9 +57,9 @@ function myapp(){
         await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
        // await faceapi.loadTinyFaceDetectorModel('/models')
         await faceapi.loadFaceLandmarkModel('/models');
-     //   await faceapi.loadTinyFaceDetectorModel('/models')
+       await faceapi.loadFaceLandmarkTinyModel('/models')
  //  
- setInterval(detectFaces,100);
+ setInterval(detectFaces,50);
 
 
     });
