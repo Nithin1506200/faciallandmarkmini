@@ -1,19 +1,27 @@
- const myapp= ()=>{
+function myapp(){
     let video = document.getElementById('video');
     let canvas =document.getElementById("canvas");
-    
+    let endd=false;
+   let end=document.getElementById("endModule");
+   end.addEventListener("click",()=>{
+     
+       endd=true;
+       return 0;
+   })
     let ctx=canvas.getContext("2d");
-    const setupCam = () =>{
-        navigator.mediaDevices.getUserMedia({
+    function setupCam() {
+      navigator.mediaDevices.getUserMedia({
             video: true,
             audio:false,
         }).then(stream => {
             video.srcObject=stream;
         });
-    };
+    }
+    
    setupCam();
-   const detectFaces = async () => {
-        var predictions = await faceapi.detectAllFaces(video).withFaceLandmarks(useTinymodel=true);
+   let detectFaces = async () => {
+   
+        let predictions = await faceapi.detectAllFaces(video).withFaceLandmarks(true);
 
             ctx.clearRect(0,0,canvas.width,canvas.height);
           
@@ -31,11 +39,11 @@
             ); */
            // ctx.stroke();
            // console.log(ctx);
-            ctx.fillStyle="black";
+            ctx.fillStyle="green";
 
                // ctx.fillRect(pred.positions[kk])
                pred.landmarks.positions.forEach(point => {
-                ctx.fillRect(point['x'],point['y'],6,5)
+                ctx.fillRect(point['x'],point['y'],2,2)
                })
         
            /* pred.positions.forEach(mesh =>{
@@ -47,9 +55,20 @@
     };
     video.addEventListener("loadeddata",async () => {
         await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
-        await faceapi.loadTinyFaceDetectorModel('/models')
-        await faceapi.loadFaceLandmarkModel('/models');
-        setInterval(detectFaces,0);
+       // await faceapi.loadTinyFaceDetectorModel('/models')
+        await faceapi.loadFaceLandmarkTinyModel('/models');
+     //   await faceapi.loadTinyFaceDetectorModel('/models')
+ //  
+ setInterval(detectFaces,100);
+
+
     });
- }
- myapp();
+
+
+}
+ //myapp();
+
+let start=document.getElementById("startModule");
+start.addEventListener("click", ()=> {
+myapp();
+});   

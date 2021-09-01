@@ -10,3 +10,41 @@ canvas {
     top: 0;
     left: 0;
 }
+
+.vidwindow{
+    width: 700px;
+    height: 700px;
+    
+}
+.load {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index: top;
+}
+.btn1 {
+    background-color: rgb(56, 168, 56);
+    border: none;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    border:rgb(4, 59, 27) solid;
+    border-left: 4px;
+    border-top: 4px;
+    border-radius:5px ;
+}
+.btn1:hover {
+    Background:red;
+}
+.btn1:active {
+    transform: translateY(4px);
+    border:rgb(59, 4, 4) solid;
+
+}
+.c2 {
+    background-color: teal;
+}
